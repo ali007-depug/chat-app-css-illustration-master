@@ -1,0 +1,217 @@
+@use "../abstract/" as *;
+$border-r: rem(15); // varibale for border-radius
+
+.chat__appAndBackground {
+  display: flex;
+  position: relative;
+  @include breakpoint-up(md){
+  width: 60%;
+  }
+  // violet background
+  .violetBg {
+    width: 50%;
+    height: 550px;
+    background-color: $moderate-violet;
+    border-end-end-radius: 200px 280px;
+    @include breakpoint-up(md){
+        border-end-start-radius: 140px 100px; // for desktop
+        min-height: 650px;
+    }
+  }
+  // style chat app container
+  .app {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    margin-inline: auto;
+    padding: rem(10);
+    margin-top: rem(50);
+    z-index: 2;
+    width: 75%;
+    border-radius: rem(20);
+    background-color: $light-grayish-violet;
+    box-shadow: 0px 0px 5px $d-grayish-violet;
+    //desktop
+    @include breakpoint-up(md){
+        left: 35%;
+        transform: translate(0,0);
+        width: 60%;
+        margin-block-start: calc(clamp(rem(80),5vw,rem(150)));
+    }
+    @include breakpoint-up(lg){
+      left: 42%;
+      width: 40%;
+    }
+  }
+}
+
+// style profile info
+.app__profileInfo {
+  padding-block-end: rem(5);
+  background: linear-gradient(to right, $g-light-violet 60%, $g-light-magenta);
+  border-top-left-radius: $border-r;
+  border-top-right-radius: $border-r;
+  border-bottom-left-radius: rem(5);
+  border-bottom-right-radius: rem(5);
+  position: relative;
+  // style white shape
+  .profileInfo__wShape {
+    background-color: $white;
+    width: 50%;
+    height: 20px;
+    margin: auto;
+    border-bottom-left-radius: $border-r;
+    border-bottom-right-radius: $border-r;
+  }
+  // style profile avatar,name,status,option
+  .profileInfo__status {
+    display: flex;
+    gap: rem(10);
+    align-items: center;
+    margin-block-start: rem(5);
+    margin-inline: rem(5);
+    // < button
+    .profileInfo__backBtn {
+      margin-inline-start: rem(15);
+      i{
+        color:$white;
+      }
+    }
+    // avatar
+    img {
+      border-radius: 50%;
+      border: 1px solid $white;
+    }
+    // name & staus
+    .profileInfo__name {
+      h5,
+      h6 {
+        color: $white;
+      }
+      h6 {
+        color: $pale-violet;
+      }
+    }
+  }
+  .profileInfo__moreBtn{
+    position: absolute;
+    right: 15px;
+    span{
+        display: flex;
+        flex-direction: column;
+        background-color: $grayish-blue;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        &:not(:last-of-type){
+            margin-block-end: rem(2);
+        }
+    }
+  }
+}
+
+// style converstion
+.app__converstion {
+font-size: clamp(0.5rem, 0.195vw + 0.454rem, 0.625rem);  // style converstion on right
+  .converstion__onRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    // dog img
+    .imgs {
+      display: flex;
+      justify-content: end;
+      margin-block: rem(10);
+      gap: rem(10);
+      img {
+        width: 50px;
+        border-radius: rem(10);
+      }
+    }
+  }
+  // style text color
+  .text {
+    max-width: fit-content;
+    margin-bottom: rem(10);
+    width: 55%;
+    line-height: 1.5;
+    padding: rem(5);
+    border-top-left-radius: rem(10);
+    border-top-right-radius: rem(10);
+    &:first-of-type {
+      margin-top: rem(10);
+    }
+    &--left {
+      color: $moderate-violet;
+      background-color: $grayish-blue;
+          border-bottom-right-radius: rem(10);
+    border-bottom-left-radius: rem(5) rem(15);
+
+    }
+    &--right {
+      color: $desaturated-dark-violet;
+      background-color: $white;
+          border-bottom-right-radius: rem(5) rem(15);
+    border-bottom-left-radius: rem(10);
+
+    }
+  }
+  // style walk with price
+  .converstion__walk {
+    width: 65%;
+    .first {
+      margin-block-end: rem(10);
+    }
+    .first,
+    .second {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(
+        to right,
+        $g-light-magenta 70%,
+        $g-light-violet
+      );
+      padding-block: rem(10);
+      padding-inline: rem(15);
+      color: $grayish-blue;
+      font-size: rem(10);
+      border-top-left-radius: rem(10);
+      border-top-right-radius: rem(10);
+      border-bottom-right-radius: rem(10);
+      border-bottom-left-radius: rem(5);
+      span {
+        font-size: rem(14);
+        font-weight: bolder;
+        color: $white;
+      }
+    }
+  }
+}
+
+// app submit btn
+.app__submitBtn{
+    border-radius: $border-r;
+    background-color: $white;
+    margin-block: rem(10);
+    padding: rem(8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .placeholder{
+        font-size: rem(10);
+        color: $grayish-blue;
+        margin-inline-start: rem(5);
+    }
+    .sendBtn{
+        background-color: $v-dark-desaturated-violet;
+        border-radius: 50%;
+        height: 100%;
+        color: white;
+        i{
+     padding-inline: rem(8); 
+     padding-block: rem(5);
+    }
+    }
+    
+}

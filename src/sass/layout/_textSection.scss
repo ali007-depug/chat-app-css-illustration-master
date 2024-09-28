@@ -1,0 +1,33 @@
+@use "../abstract/" as *;
+
+.textSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @include breakpoint-down(sm){
+        padding-inline-start: rem(10);
+        text-align: center;
+    }
+    @include breakpoint-up(md){
+    width: 40%;
+    }
+    &__title{
+        color: $v-dark-desaturated-violet;
+        margin-block-end: rem(20);
+        font-size: clamp(0.813rem, 0.488vw + 0.698rem, 1.125rem);
+    }
+    &__description{
+        max-width: 35ch;
+        line-height: 1.5;
+        color: $grayish-blue;
+        font-size: clamp(0.75rem, 0.39vw + 0.659rem, 1rem);
+        @include breakpoint-down(sm){
+            margin-inline: auto;
+        }
+        
+        @include breakpoint-up(lg){
+            max-width: 40ch;
+        }
+    }
+}

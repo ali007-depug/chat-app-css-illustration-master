@@ -1,0 +1,23 @@
+$breakpoint-up: (
+  "sm": 525px,
+  "md": 768px,
+  "lg": 992px,
+);
+
+@mixin breakpoint-up($screenSize) {
+  @media (min-width: (map-get($breakpoint-up,$screenSize))) {
+    @content;
+  }
+}
+
+$breakpoint-down: (
+    "sm": 524px,
+    "md": 767px,
+    "lg": 991px,
+  );
+
+  @mixin breakpoint-down($screenSize) {
+  @media (max-width: (map-get($breakpoint-down,$screenSize))) {
+    @content;
+  }
+}

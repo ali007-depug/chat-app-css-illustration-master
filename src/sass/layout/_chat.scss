@@ -1,0 +1,17 @@
+@use "../abstract/" as *;
+
+// design with mobile first approch
+.chat{
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    // height: 100vh;
+    min-height: 650px;
+
+    @include breakpoint-down(sm){
+        gap:rem(70)
+    }
+    @include breakpoint-up(md){
+        flex-direction: row;
+    }
+}
